@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <color
+            android:color="@color/splash_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </item>
+    <item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <bitmap
+            android:src="@drawable/splash_logo"
+            android:tileMode="disabled"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </item>
+</layer-list>
