@@ -38,7 +38,7 @@ namespace XA1_ThreePages
         public void DeleteUser(Users user)
         {
             var db = new SQLiteConnection(dbPath);
-            db.Update(user);
+            db.Delete(user);
         }
 
 
