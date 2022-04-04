@@ -32,7 +32,7 @@ namespace XA1_ThreePages
                     if (user != null)
                     {
                         Intent i = new Intent(this, typeof(ThirdActivity));
-                        i.PutExtra("UId", user.UId);
+                        i.PutExtra("UId", user.UId.ToString());
                         StartActivity(i);
                     }
                     else
