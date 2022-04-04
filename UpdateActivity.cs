@@ -55,7 +55,7 @@ namespace XA1_ThreePages
                     var sq = new UserOperations();
                     sq.UpdateUser(user);
                     Intent i = new Intent(this, typeof(ThirdActivity));
-                    i.PutExtra("UId", user.UId);
+                    i.PutExtra("UId", user.UId.ToString());
                     StartActivity(i);
                 }
                 else
