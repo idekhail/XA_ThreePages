@@ -40,10 +40,10 @@ namespace XA1_ThreePages
             latitude.Text = user.Latitude + "";
             longitude.Text = user.Longitude + "";
 
-            logout.Click += delegate
+            update.Click += delegate
             {
                 Intent i = new Intent(this, typeof(UpdateActivity));
-                i.PutExtra("UId", user.UId);
+                i.PutExtra("UId", user.UId+"");
                 StartActivity(i);
             };
 
