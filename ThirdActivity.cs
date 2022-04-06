@@ -24,7 +24,7 @@ namespace XA1_ThreePages
 
             var close = FindViewById<Button>(Resource.Id.close);
             var update = FindViewById<Button>(Resource.Id.update);
-            var logout = FindViewById<Button>(Resource.Id.login);
+            var logout = FindViewById<Button>(Resource.Id.logout);
             var location = FindViewById<Button>(Resource.Id.location);
             var call = FindViewById<Button>(Resource.Id.call);
             var mailme = FindViewById<Button>(Resource.Id.mailme);
@@ -49,7 +49,7 @@ namespace XA1_ThreePages
 
             logout.Click += delegate
             {
-                Intent i = new Intent(this, typeof(SecondActivity));
+                Intent i = new Intent(this, typeof(MainActivity));
                 StartActivity(i);
             };
 
