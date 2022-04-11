@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using SQLite;
 namespace XA1_ThreePages
@@ -65,8 +66,21 @@ namespace XA1_ThreePages
                 return null;
             }
         }
-        
-         [Table("Users")]
+        public List<Users> GetUserAllUsers()
+        {
+            var db = new SQLiteConnection(dbPath);
+            Console.WriteLine("Reading data From Table");
+            try
+            {
+                var user = db.Table<Users>().ToList();
+                return user;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        [Table("Users")]
         public class Users
         {
             [PrimaryKey, AutoIncrement, Column("_uid")]
