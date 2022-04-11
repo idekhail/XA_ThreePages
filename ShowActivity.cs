@@ -19,7 +19,21 @@ namespace XA1_ThreePages
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            var showall = FindViewById<Button>(Resource.Id.showall);
+            var back = FindViewById<Button>(Resource.Id.back);
+
+            var show = FindViewById<TextView>(Resource.Id.show);
+
+            var sq = new UserOperations();
+            var users = sq.GetAllUsers();
+
+            string s = "";
+            foreach(var user in users)
+            {
+                s =+ user.UId + "    " + user.Username + "   " + user.Password + "/n";
+            }
+
+            show.Text = s;
         }
     }
 }
