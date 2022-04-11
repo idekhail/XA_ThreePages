@@ -66,7 +66,7 @@ namespace XA1_ThreePages
                 return null;
             }
         }
-        public List<Users> GetUserAllUsers()
+        public List<Users> GetAllUsers()
         {
             var db = new SQLiteConnection(dbPath);
             Console.WriteLine("Reading data From Table");
