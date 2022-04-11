@@ -30,10 +30,16 @@ namespace XA1_ThreePages
             string s = "";
             foreach(var user in users)
             {
-                s =+ user.UId + "    " + user.Username + "   " + user.Password + "/n";
+                s += user.UId + "    " + user.Username + "   " + user.Password + "/n";
             }
 
-            show.Text = s;
+             show.Text = s.ToString();
+
+            back.Click += delegate
+            {
+                Intent intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+            };
         }
     }
 }
