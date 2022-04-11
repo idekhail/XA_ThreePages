@@ -6,13 +6,15 @@
 	<string name="CreateUser">Create User Page</string>
 	<string name="UpdateUser">Update User Page</string>
 	<string name="ThirdPage">Third Page</string>
-
+	<string name="SecondPage">Second Page</string>
+	
 	<string name="Update">Update</string>
 	<string name="Delete">Delete</string>
 	<string name="Logout">Logout</string>
 	<string name="Call">Call</string>
 	<string name="Location">Location</string>
-	
+	<string name="ShowPage">ShowPage</string>
+
 	<string name="Username">Username</string>
 	<string name="Password">Password</string>
 	<string name="Login">Login</string>
@@ -27,4 +29,11 @@
 	<string name="Longitude">Longitude</string>
 	<string name="Back">Back</string>
 	<string name="Next">Next</string>
+	
+	<string name="Subject">Subject</string>
+	<string name="Body">Body</string>
+	<string name="SendEmail">Send Email</string>
+	<string name="MailTo">Mail To</string>
+
+
 </resources>
