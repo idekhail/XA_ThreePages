@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+
 namespace XA1_ThreePages
 {
     [Activity(Label = "@string/app_name")]

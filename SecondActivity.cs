@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Xamarin.Essentials;
+
 namespace XA1_ThreePages
 {
     [Activity(Label = "SecondActivity")]
@@ -21,50 +23,50 @@ namespace XA1_ThreePages
 
             SetContentView(Resource.Layout.activity_second);           
 
-            var website = FindViewById<EditText>(Resource.Id.website);
-            var mobile = FindViewById<EditText>(Resource.Id.mobile);
+            var subject = FindViewById<EditText>(Resource.Id.subject);
+            var body = FindViewById<EditText>(Resource.Id.body);
+            
 
-            var call = FindViewById<Button>(Resource.Id.call);
-            var map = FindViewById<Button>(Resource.Id.map);
-            var web = FindViewById<Button>(Resource.Id.web);
-            var clear = FindViewById<Button>(Resource.Id.clear);
-            var next = FindViewById<ImageButton>(Resource.Id.next);
-            
-            string username = Intent.GetStringExtra("username");
-            
-            next.Click += delegate
+            var sendemail = FindViewById<Button>(Resource.Id.sendemail);
+            var back = FindViewById<Button>(Resource.Id.back);
+
+            string id = Intent.GetStringExtra("UId");
+            var sq = new UserOperations();
+            var user = sq.GetUserById(Convert.ToInt32(id));
+
+            back.Click += delegate
             {
                 Intent intent = new Intent(this, typeof(ThirdActivity));
-                intent.PutExtra("username", username);
+                intent.PutExtra("UId", user.UId.ToString());
                 StartActivity(intent);
             };
 
-            // Call Me
-            call.Click += delegate
-            {
-                var url = Android.Net.Uri.Parse("tel:" + mobile.Text);
-                var i = new Intent(Intent.ActionDial, url);
-                StartActivity(i);
 
-            };
-            //Open Web
-            web.Click += delegate
+            sendemail.Click += delegate
             {
-                var url = Android.Net.Uri.Parse(website.Text);
-                var i = new Intent(Intent.ActionView, url);
-                StartActivity(i);
+                try
+                {
+                   // List<string> send = mailTo.Text as List<string>;
+                    var message = new EmailMessage
+                    {
+                        Subject = subject.Text,
+                        Body = body.Text,
+                        To = (List)user.Email,
+                        //Cc = ccRecipients,
+                        //Bcc = bccRecipients
+                    };
+                    Email.ComposeAsync(message);
+                }
+                catch (FeatureNotSupportedException fbsEx)
+                {
+                    // Email is not supported on this device
+                }
+                catch (Exception ex)
+                {
+                    // Some other exception occurred
+                }
             };
-
-            map.Click += delegate
-            {
-                var latitude = website.Text;
-                var longitude = mobile.Text;
-                //  ( "geo:27.477474,43.67554")
-                var url = Android.Net.Uri.Parse("geo:" + latitude + "," + longitude);
-                var i = new Intent(Intent.ActionView, url);
-                StartActivity(i);
-            };
-           
+            
         }
     }
 }

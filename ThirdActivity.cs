@@ -3,6 +3,10 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Xamarin.Essentials;
 
 namespace XA1_ThreePages
 {
@@ -46,7 +50,12 @@ namespace XA1_ThreePages
                 i.PutExtra("UId", user.UId+"");
                 StartActivity(i);
             };
-
+            mailme.Click += delegate
+            {
+                Intent i = new Intent(this, typeof(SecondActivity));
+                i.PutExtra("UId", user.UId + "");
+                StartActivity(i);
+            };
             logout.Click += delegate
             {
                 Intent i = new Intent(this, typeof(MainActivity));
@@ -57,6 +66,28 @@ namespace XA1_ThreePages
             {
                 System.Environment.Exit(0);
             };
+          
+
+            // Call Me
+            call.Click += delegate
+            {
+                var url = Android.Net.Uri.Parse("tel:" + user.Mobile);
+                var i = new Intent(Intent.ActionDial, url);
+                StartActivity(i);
+
+            };
+            //Open Web
+            location.Click += delegate
+            {
+                var latitude = user.Latitude;
+                var longitude = user.Longitude;
+                var url = Android.Net.Uri.Parse("geo:" + latitude + "," + longitude);
+                var i = new Intent(Intent.ActionView, url);
+                StartActivity(i);
+            };
+
         }
+
+      
     }
 }
