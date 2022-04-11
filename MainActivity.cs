@@ -23,6 +23,7 @@ namespace XA1_ThreePages
             var clear = FindViewById<Button>(Resource.Id.clear);
             var close = FindViewById<Button>(Resource.Id.close);
             var create = FindViewById<Button>(Resource.Id.create);
+            var showpage = FindViewById<Button>(Resource.Id.showpage);
 
             login.Click += delegate
             {
@@ -57,6 +58,13 @@ namespace XA1_ThreePages
                 var i = new Intent(this, typeof(CreateUserActivity));
                 StartActivity(i);
             };
+
+            showpage.Click += delegate
+            {
+                var i = new Intent(this, typeof(ShowActivity));
+                StartActivity(i);
+            };
+
         }       
     }
 }
