@@ -18,22 +18,29 @@ namespace XA1_ThreePages
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_show);
 
             var showall = FindViewById<Button>(Resource.Id.showall);
             var back = FindViewById<Button>(Resource.Id.back);
 
             var show = FindViewById<TextView>(Resource.Id.show);
 
-            var sq = new UserOperations();
-            var users = sq.GetAllUsers();
+            
 
-            string s = "";
-            foreach(var user in users)
+            showall.Click += delegate
             {
-                s += user.UId + "    " + user.Username + "   " + user.Password + "/n";
-            }
+                
+                var sq = new UserOperations();
+                var users = sq.GetAllUsers();
 
-             show.Text = s.ToString();
+                string s = "";
+                foreach(var user in users)
+                {
+                    s += user.UId + "    " + user.Username + "   " + user.Password + "\n";
+                }
+
+                show.Text = s.ToString();
+            };
 
             back.Click += delegate
             {
@@ -41,5 +48,7 @@ namespace XA1_ThreePages
                 StartActivity(intent);
             };
         }
+
+        
     }
 }
