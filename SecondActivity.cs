@@ -46,24 +46,26 @@ namespace XA1_ThreePages
             {
                 try
                 {
-                   // List<string> send = mailTo.Text as List<string>;
+                    List<string> recipients = new List<string>() {user.Email };
+                    // List<string> send = mailTo.Text as List<string>;
                     var message = new EmailMessage
                     {
                         Subject = subject.Text,
                         Body = body.Text,
-                        To = (List)user.Email,
+                        To = recipients,
                         //Cc = ccRecipients,
                         //Bcc = bccRecipients
                     };
                     Email.ComposeAsync(message);
+                    Toast.MakeText(this, "Email Sent", ToastLength.Long).Show();
                 }
-                catch (FeatureNotSupportedException fbsEx)
+                catch (FeatureNotSupportedException ex1)
                 {
-                    // Email is not supported on this device
+                    Toast.MakeText(this, "Error1" + ex1.Message, ToastLength.Long).Show();
                 }
                 catch (Exception ex)
                 {
-                    // Some other exception occurred
+                    Toast.MakeText(this, "Error2" + ex.Message, ToastLength.Long).Show();
                 }
             };
             
