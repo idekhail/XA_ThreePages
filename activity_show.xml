@@ -40,21 +40,30 @@
                 android:layout_margin="10dp">
                 <Button
                     android:text="Show All"
-                    android:layout_width="126.0dp"
+                    android:layout_width="110dp"
                     android:layout_height="68.5dp"
                     android:id="@+id/showall"
                     android:padding="10dp"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="17dp"
                     android:layout_margin="5dp" />
                 <Button
                     android:text="@string/Back"
-                    android:layout_width="126.0dp"
+                    android:layout_width="70.0dp"
                     android:layout_height="68.5dp"
                     android:id="@+id/back"
                     android:padding="10dp"
                     android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:textSize="17dp"
+                    android:layout_margin="5dp" />
+            <Button
+                    android:text="@string/ShowUser"
+                    android:layout_width="110.0dp"
+                    android:layout_height="68.5dp"
+                    android:id="@+id/showuser"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
                     android:layout_margin="5dp" />
             </LinearLayout>
         <LinearLayout
@@ -66,16 +75,29 @@
             android:id="@+id/linearLayout2"
             android:background="#ff3a3e28"
             android:gravity="center">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/username"
+                android:background="#fffaf8f8"
+                android:layout_margin="10dp"
+                android:hint="@string/Username"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textColorHint="#ff000000"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/show"
                 android:background="#fffaf8f8"
                 android:layout_margin="10dp"
-                android:text="Show"
+                android:text="@string/Show"
                 android:gravity="center"
+                android:textSize="25dp"
                 android:textColor="#ff000000"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

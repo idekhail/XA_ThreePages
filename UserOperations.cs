@@ -1,7 +1,11 @@
-﻿using System;
+﻿
+
+using SQLite;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
-using SQLite;
+
 namespace XA1_ThreePages
 {
     public class UserOperations
@@ -69,17 +73,21 @@ namespace XA1_ThreePages
         public List<Users> GetAllUsers()
         {
             var db = new SQLiteConnection(dbPath);
-            Console.WriteLine("Reading data From Table");
-            try
-            {
-                var user = db.Table<Users>().ToList();
-                return user;
-            }
-            catch
-            {
-                return null;
-            }
+            return db.Table<Users>().ToList(); 
         }
+        public Users GetUser(string username)
+        {
+            var db = new SQLiteConnection(dbPath);
+            //Console.WriteLine("Reading data From Table");
+            var user = db.Table<Users>().Where(i => i.Username == username).FirstOrDefault();
+            return user;
+        }
+        public List<Users> GetUsersByUser(string username)
+        {
+            var db = new SQLiteConnection(dbPath);
+            return db.Table<Users>().Where(i => i.Username == username).ToList();
+        }
+
         [Table("Users")]
         public class Users
         {
@@ -95,6 +103,7 @@ namespace XA1_ThreePages
             public string Email { get; set; }
             public double Latitude { get; set; }
             public double Longitude { get; set; }
+          //  public string website { get; set; }
         }        
     }
 }
